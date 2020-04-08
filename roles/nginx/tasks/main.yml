@@ -13,17 +13,21 @@
   notify:
     - restart nginx
 
-- name: snuok config
+- name: render configs
   become: true
   copy:
-    src: "{{ role_path }}/files/snuok.conf"
-    dest: /etc/nginx/sites-available/snuok.conf
+    src: "{{item.value.file_location}}/{{item.value.file_name}}"
+    dest: "/etc/nginx/sites-available/{{item.value.file_name}}"
     mode: 0644
+  with_dict: "{{ nginx_configs }}"
 
-- name: enable snuok
+- name: link configs
   become: true
   file:
-    src: /etc/nginx/sites-available/snuok.conf
-    dest: /etc/nginx/sites-enabled/85-snuok.conf
+    src: "/etc/nginx/sites-available/{{item.value.file_name}}"
+    dest: "/etc/nginx/sites-enabled/{{item.value.file_name}}"
     state: link
+  with_dict: "{{ nginx_configs }}"
+  notify:
+    - restart nginx
 

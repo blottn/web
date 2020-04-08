@@ -2,7 +2,5 @@
 - hosts: all
   remote_user: ansible
   roles:
-    - common
-    - nginx
     - augmenture
     - snuok
