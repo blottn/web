@@ -1,2 +1,3 @@
 dependencies:
   - role: static
+  - role: ghosttyper

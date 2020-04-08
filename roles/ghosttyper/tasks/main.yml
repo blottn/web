@@ -1,0 +1,17 @@
+- name: ensure ghosttyper is installed
+  become: true
+  npm:
+    name: ghosttyper
+    global: yes
+    state: latest
+    version: latest
+
+
+- name: ensure ghosttyper is available
+  become: true
+  file:
+    state: link
+    src: /usr/lib/node_modules/ghosttyper/ghost.js
+    dest: /opt/web/ghost.js
+    owner: ansible
+    group: ansible
