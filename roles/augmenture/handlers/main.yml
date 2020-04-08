@@ -4,8 +4,4 @@
     name: augmenture
     state: restarted
 
-- name: restart nginx
-  become: true
-  service:
-    name: nginx
-    state: restarted
+- include: roles/nginx/handlers/main.yml

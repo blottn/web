@@ -1,0 +1,8 @@
+dependencies:
+  - role: npm
+  - role: nginx
+    vars:
+      nginx_configs:
+        augmenture:
+          file_location: "{{playbook_dir}}/roles/augmenture/files/"
+          file_name: augmenture.conf
