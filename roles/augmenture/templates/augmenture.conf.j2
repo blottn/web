@@ -1,0 +1,11 @@
+server {
+    location /augmenture/ {
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_pass http://localhost:8000;
+    }
+
+    location /static/ {
+        root /usr/lib/node_modules/augmenture/dist/static/;
+    }
+}

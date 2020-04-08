@@ -1,0 +1,8 @@
+- name: Ensure nvm is installed
+  script:
+    cmd: ./scripts/install-nvm.sh
+
+- name: Ensure npm is installed and up to date
+  script:
+    cmd: ./scripts/install-npm.sh
+    
