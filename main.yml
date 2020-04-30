@@ -2,5 +2,10 @@
 - hosts: all
   remote_user: ansible
   roles:
-    - augmenture
-    - snuok
+    - role: index
+      vars:
+        projects:
+          - augmenture
+          - snuok
+    - role: augmenture
+    - role: snuok

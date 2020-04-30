@@ -4,20 +4,3 @@
   file:
     path: /opt/web/
     state: directory
-
-- name: Ensure nginx config exists
-  become: true
-  copy:
-    src: "{{ role_path }}/files/static.conf"
-    dest: /etc/nginx/sites-available/static.conf
-    mode: 0644
-
-- name: Link nginx config
-  become: true
-  file:
-    src: /etc/nginx/sites-available/static.conf
-    dest: /etc/nginx/sites-enabled/20-static.conf
-    state: link
-  notify:
-    - restart nginx
-    
