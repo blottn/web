@@ -9,3 +9,4 @@
           - snuok
     - role: augmenture
     - role: snuok
+    - role: docker
