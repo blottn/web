@@ -16,3 +16,7 @@
   apt:
     name: docker-ce
     update_cache: yes
+
+- name: Add ansible to docker users
+  become: true
+  command: usermod -a -G docker ansible
