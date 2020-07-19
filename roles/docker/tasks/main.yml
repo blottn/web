@@ -3,7 +3,9 @@
     name: software-properties-common
 
 - name: Add docker repo gpg key
-  command: curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -
+  tags:
+    - init
+  command: curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
 
 - name: Add docker apt repo
   become: true
