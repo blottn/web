@@ -5,19 +5,24 @@
 - name: Add docker repo gpg key
   tags:
     - init
-  command: curl -fsSL https://download.docker.com/linux/debian/gpg | apt-key add -
+  shell:
+    cmd: "curl -fsSL https://download.docker.com/linux/debian/gpg | sudo apt-key add -"
+
 
 - name: Add docker apt repo
   become: true
-  command: add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian \
-   $(lsb_release -cs) \
-   stable"
+  shell:
+    cmd: add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/debian `lsb_release -cs` stable"
 
 - name: Ensure docker is installed
   become: true
   apt:
     name: docker-ce
     update_cache: yes
+
+- name: Ensure docker python sdk installed for ansible python module
+  pip:
+    name: docker
 
 - name: Add ansible to docker users
   become: true

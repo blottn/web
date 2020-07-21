@@ -1,3 +1,6 @@
 - name: Run wrm
-  command: docker run -d -p 3443:3000 blottn/wrm
-    
+  docker_container:
+    name: wrm
+    image: blottn/wrm
+    ports:
+      - "3443:3000"

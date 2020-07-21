@@ -4,4 +4,4 @@ dependencies:
       nginx_configs:
         static:
           file_location: "{{playbook_dir}}/roles/static/files/"
-          file_name: static.conf
+          file_name: static.locations

@@ -1,0 +1,4 @@
+location /static {
+    rewrite ^/static/(.*) /$1 break;
+    root /opt/web/;
+}

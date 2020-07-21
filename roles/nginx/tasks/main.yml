@@ -13,10 +13,6 @@
   notify:
     - restart nginx
 
-- name: dump nginx_configs
-  debug:
-    msg: "{{ nginx_configs }}"
-
 - name: render configs
   become: true
   copy:

@@ -1,0 +1,4 @@
+- name: Ensure pip is installed
+  become: true
+  apt:
+    name: python-pip

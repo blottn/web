@@ -5,4 +5,4 @@ dependencies:
         nginx_configs:
           wrm:
             file_location: "{{playbook_dir}}/roles/wrm/files/"
-            file_name: wrm.conf
+            file_name: wrm.locations

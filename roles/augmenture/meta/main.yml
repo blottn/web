@@ -5,4 +5,4 @@ dependencies:
       nginx_configs:
         augmenture:
           file_location: "{{playbook_dir}}/roles/augmenture/files/"
-          file_name: augmenture.conf
+          file_name: augmenture.locations
